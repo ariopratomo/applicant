@@ -41,8 +41,9 @@ class HomeController extends Controller
     }
     public function admin()
     {
+        $keyword = '';
         $applicants = Applicant::with('user')->paginate(15);
-        return view('admin', compact('applicants'));
+        return view('admin', compact('applicants', 'keyword'));
     }
 
     public function updateApplicants(Request $request)
@@ -120,7 +121,7 @@ class HomeController extends Controller
         $applicants = Applicant::whereHas('user', function ($q) use ($keyword) {
             $q->join('applicants_education', 'users.id', '=', 'applicants_education.user_id');
             $q->where('name', 'like', '%' . $keyword . '%')->orWhere('jenjang_terakhir', 'like', '%' . $keyword . '%');
-        })->orWhere('posisi', 'like', '%' . $keyword . '%')->paginate(1);
+        })->orWhere('posisi', 'like', '%' . $keyword . '%')->paginate(15);
         return view('admin', compact('applicants', 'keyword'));
     }
 }
