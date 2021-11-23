@@ -100,4 +100,13 @@ class HomeController extends Controller
 
         return redirect('/')->with('success', 'User updated successfully');
     }
+
+    public function detailApplicant($id)
+    {
+        $applicant = Applicant::with('user')->where('user_id', $id)->firstOrFail();
+        $applicant_edu = ApplicantEdu::where('user_id', $id)->firstOrFail();
+        $riwayat_pekerjaan = ApplicantRiwayatKerja::where('user_id', $id)->firstOrFail();
+        $riwayat_pelatihan = ApplicantRiwayatPelatihan::where('user_id', $id)->firstOrFail();
+        return view('detail', compact('applicant', 'applicant_edu', 'riwayat_pekerjaan', 'riwayat_pelatihan'));
+    }
 }

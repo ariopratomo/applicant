@@ -15,6 +15,7 @@
                                 <th>Nama</th>
                                 <th>Tempat, Tanggal Lahir</th>
                                 <th>Posisi yang dilamar</th>
+                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,6 +24,7 @@
                                 <td>{{ $row->user->name }}</td>
                                 <td>{{ $row->tempat_lahir }}, {{ $row->tgl_lahir }}</td>
                                 <td>{{ $row->posisi }}</td>
+                                <td><a href="{{ route('detail',$row->user->id) }}">Detail</a></td>
                             </tr>
                             @endforeach
                         </tbody>
