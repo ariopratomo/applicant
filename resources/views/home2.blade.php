@@ -81,6 +81,60 @@
                             <td><span class="mx-2">:</span></td>
                             <td>{{$applicant->skill}}</td>
                         </tr>
+
+                        <tr>
+                            <td>Pendidikan</td>
+                            <td> </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Jenjang Terakhir</td>
+                            <td> <span class="mx-2">:</span></td>
+                            <td>{{$applicant_edu->jenjang_terakhir}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nama Institusi Akademik</td>
+                            <td> <span class="mx-2">:</span></td>
+                            <td>{{$applicant_edu->institusi_akademik}}</td>
+                        </tr>
+                        <tr>
+                            <td>Jurusan</td>
+                            <td> <span class="mx-2">:</span></td>
+                            <td>{{$applicant_edu->jurusan}}</td>
+                        </tr>
+                        <tr>
+                            <td>Tahun Lulus</td>
+                            <td> <span class="mx-2">:</span></td>
+                            <td>{{$applicant_edu->tahun_lulus}}</td>
+                        </tr>
+                        <tr>
+                            <td>IPK</td>
+                            <td> <span class="mx-2">:</span></td>
+                            <td>{{$applicant_edu->ipk}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Riwayat Pekerjaan</td>
+                            <td> </td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Nama Perusahaan</td>
+                            <td> <span class="mx-2">:</span></td>
+                            <td>{{$riwayat_pekerjaan->nama_perusahaan}}</td>
+                        </tr>
+                        <tr>
+                            <td>Posisi Terakhir</td>
+                            <td> <span class="mx-2">:</span></td>
+                            <td>{{$riwayat_pekerjaan->posisi_terakhir}}</td>
+                        </tr>
+                        <tr>
+                            <td>Tahun</td>
+                            <td> <span class="mx-2">:</span></td>
+                            <td>{{$riwayat_pekerjaan->tahun}}</td>
+                        </tr>
+
                     </table>
                 </div>
             </div>
