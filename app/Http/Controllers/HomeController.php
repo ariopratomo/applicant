@@ -118,7 +118,8 @@ class HomeController extends Controller
             $keyword = '';
         }
         $applicants = Applicant::whereHas('user', function ($q) use ($keyword) {
-            $q->where('name', 'like', '%' . $keyword . '%');
+            $q->join('applicants_education', 'users.id', '=', 'applicants_education.user_id');
+            $q->where('name', 'like', '%' . $keyword . '%')->orWhere('jenjang_terakhir', 'like', '%' . $keyword . '%');
         })->orWhere('posisi', 'like', '%' . $keyword . '%')->paginate(1);
         return view('admin', compact('applicants', 'keyword'));
     }
