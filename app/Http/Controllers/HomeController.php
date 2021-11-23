@@ -41,7 +41,7 @@ class HomeController extends Controller
     }
     public function admin()
     {
-        $applicants = applicant::with('user')->get();
+        $applicants = Applicant::with('user')->paginate(15);
         return view('admin', compact('applicants'));
     }
 

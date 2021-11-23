@@ -29,6 +29,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $applicants->links() }}
                     @else
                     <div class=”panel-heading”>Normal User</div>
                     @endif
