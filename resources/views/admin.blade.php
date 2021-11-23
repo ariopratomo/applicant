@@ -12,8 +12,8 @@
                     <form action="{{ route('search') }}" method="POST" role="search">
                         @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control" name="q" placeholder="Search users"> <span
-                                class="input-group-btn">
+                            <input type="text" class="form-control" value="{{ $keyword }}" name="q"
+                                placeholder="Search users"> <span class="input-group-btn">
                                 <button type="submit" class="btn btn-primary">
                                     Search
                                 </button>

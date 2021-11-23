@@ -112,8 +112,14 @@ class HomeController extends Controller
     public function search(Request $request)
 
     {
-
-        $applicants = Applicant::with('user')->where('posisi', 'like', '%' . $request->q . '%')->paginate(15);
-        return view('admin', compact('applicants'));
+        if ($request->q) {
+            $keyword = $request->q;
+        } else {
+            $keyword = '';
+        }
+        $applicants = Applicant::whereHas('user', function ($q) use ($keyword) {
+            $q->where('name', 'like', '%' . $keyword . '%');
+        })->orWhere('posisi', 'like', '%' . $keyword . '%')->paginate(1);
+        return view('admin', compact('applicants', 'keyword'));
     }
 }
