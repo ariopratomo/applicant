@@ -109,4 +109,11 @@ class HomeController extends Controller
         $riwayat_pelatihan = ApplicantRiwayatPelatihan::where('user_id', $id)->firstOrFail();
         return view('detail', compact('applicant', 'applicant_edu', 'riwayat_pekerjaan', 'riwayat_pelatihan'));
     }
+    public function search(Request $request)
+
+    {
+
+        $applicants = Applicant::with('user')->where('posisi', 'like', '%' . $request->q . '%')->paginate(15);
+        return view('admin', compact('applicants'));
+    }
 }
